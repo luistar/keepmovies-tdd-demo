@@ -57,4 +57,12 @@ class KeepMoviesSpecification {
 		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo));
 	}
 	
+	@Test
+	void shouldNotStoreNullOrDuplicateMoviesVariadic() {
+		k.add(joker,jojo,null,up,joker,jojo);
+		k.add(dunkirk,jojo);
+		
+		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo,dunkirk,up));
+	}
+	
 }
