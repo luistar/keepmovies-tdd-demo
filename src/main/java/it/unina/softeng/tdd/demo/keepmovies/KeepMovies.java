@@ -3,6 +3,7 @@ package it.unina.softeng.tdd.demo.keepmovies;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,8 +36,19 @@ public class KeepMovies {
 	}
 
 	public Map<Year, List<Movie>> groupMoviesByYear() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<Year, List<Movie>> grouping = new HashMap<Year, List<Movie>>();
+		for(Movie m : movies) {
+			Year y = m.getReleaseYear();
+			if( grouping.containsKey(y) ) {
+				grouping.get(y).add(m);
+			}
+			else {
+				List<Movie> list = new ArrayList<Movie>();
+				list.add(m);
+				grouping.put(y, list);
+			}
+		}
+		return grouping;
 	}
 
 }
