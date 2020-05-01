@@ -12,7 +12,9 @@ public class KeepMovies {
 	}
 
 	public void add(Movie movie) {
-		movies.add(movie);
+		if( ! movies.contains(movie) ) {
+			movies.add(movie);
+		}
 	}
 
 }
