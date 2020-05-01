@@ -6,6 +6,7 @@ import java.time.Year;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.*;
@@ -65,40 +66,43 @@ class KeepMoviesSpecification {
 		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo,dunkirk,up));
 	}
 	
-	@Test
-	void shouldSortCorrectlyByTitleAsc() {
-		k.add(joker,jojo,up,dunkirk);
+	@Nested 
+	public class SortingTests {
+		@Test
+		void shouldSortCorrectlyByTitleAsc() {
+			k.add(joker,jojo,up,dunkirk);
+			
+			List<Movie> sortedList = k.getMoviesByTitleAsc();
+			
+			assertThat(sortedList, contains(dunkirk,jojo,joker,up));
+		}
 		
-		List<Movie> sortedList = k.getMoviesByTitleAsc();
+		@Test
+		void shouldSortCorrectlyByTitleDesc() {
+			k.add(joker,jojo,up,dunkirk);
+			
+			List<Movie> sortedList = k.getMoviesByTitleDesc();
+			
+			assertThat(sortedList, contains(up,joker,jojo,dunkirk));
+		}
 		
-		assertThat(sortedList, contains(dunkirk,jojo,joker,up));
-	}
-	
-	@Test
-	void shouldSortCorrectlyByTitleDesc() {
-		k.add(joker,jojo,up,dunkirk);
+		@Test
+		void shouldSortCorrectlyByReleaseYearAsc() {
+			k.add(joker,jojo,up,dunkirk);
+			
+			List<Movie> sortedList = k.getMoviesByReleaseYearAsc();
+			
+			assertThat(sortedList, anyOf(contains(up,dunkirk,jojo,joker),contains(up,dunkirk,joker,jojo)));
+		}
 		
-		List<Movie> sortedList = k.getMoviesByTitleDesc();
-		
-		assertThat(sortedList, contains(up,joker,jojo,dunkirk));
-	}
-	
-	@Test
-	void shouldSortCorrectlyByReleaseYearAsc() {
-		k.add(joker,jojo,up,dunkirk);
-		
-		List<Movie> sortedList = k.getMoviesByReleaseYearAsc();
-		
-		assertThat(sortedList, anyOf(contains(up,dunkirk,jojo,joker),contains(up,dunkirk,joker,jojo)));
-	}
-	
-	@Test
-	void shouldSortCorrectlyByReleaseYearDesc() {
-		k.add(joker,up,dunkirk);
-		
-		List<Movie> sortedList = k.getMoviesByReleaseYearDesc();
-		
-		assertThat(sortedList, contains(joker,dunkirk,up));
+		@Test
+		void shouldSortCorrectlyByReleaseYearDesc() {
+			k.add(joker,up,dunkirk);
+			
+			List<Movie> sortedList = k.getMoviesByReleaseYearDesc();
+			
+			assertThat(sortedList, contains(joker,dunkirk,up));
+		}
 	}
 	
 }
