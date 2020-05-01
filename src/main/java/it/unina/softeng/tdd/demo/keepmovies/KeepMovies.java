@@ -5,12 +5,14 @@ import java.util.List;
 
 public class KeepMovies {
 
+	List<Movie> movies = new ArrayList<Movie>();
+	
 	public List<Movie> getMovies() {
-		return new ArrayList<Movie>();
+		return movies;
 	}
 
-	public void add(Movie joker) {
-		// TODO Auto-generated method stub
+	public void add(Movie movie) {
+		movies.add(movie);
 	}
 
 }
