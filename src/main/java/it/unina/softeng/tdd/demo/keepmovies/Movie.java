@@ -46,4 +46,9 @@ public class Movie {
 	public boolean isAlreadyWatched() {
 		return false;
 	}
+
+
+	public void markAsWatched() {
+		// TODO Auto-generated method stub
+	}
 }
