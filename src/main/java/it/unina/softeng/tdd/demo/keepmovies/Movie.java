@@ -44,7 +44,6 @@ public class Movie {
 
 
 	public boolean isAlreadyWatched() {
-		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 }
