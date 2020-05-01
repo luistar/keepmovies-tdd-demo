@@ -51,4 +51,9 @@ public class KeepMovies {
 		return grouping;
 	}
 
+	public Map<String, List<Movie>> groupMoviesByGenre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
