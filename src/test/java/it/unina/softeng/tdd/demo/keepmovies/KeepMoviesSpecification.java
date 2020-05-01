@@ -27,4 +27,17 @@ class KeepMoviesSpecification {
 		assertThat(movies, is(empty()));
 	}
 	
+	@Test
+	void shouldStoreSavedMovies() {
+		KeepMovies k  = new KeepMovies();
+		Movie joker, jojo;
+		joker   = new Movie("Joker",Year.of(2019),"thriller");
+		jojo    = new Movie("Jojo Rabbit", Year.of(2019), "comedy-drama");
+		
+		k.add(joker);
+		k.add(jojo);
+		
+		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo));
+	}
+	
 }
