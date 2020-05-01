@@ -34,8 +34,9 @@ public class KeepMovies {
 	}
 
 	public List<Movie> getMoviesByReleaseYearAsc() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Movie> sortedList = new ArrayList<Movie>(movies);
+		sortedList.sort((Movie m1, Movie m2) -> m1.getReleaseYear().compareTo(m2.getReleaseYear()));
+		return sortedList;
 	}
 
 }
