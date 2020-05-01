@@ -145,4 +145,12 @@ class KeepMoviesSpecification {
 			)))
 		));
 	}
+	
+	@Test
+	void shouldReturnEmptyGroupingWhenGroupMoviesByYearIsCalledOnEmptyKeepMovies() {
+		
+		Map<Year,List<Movie>> grouping = k.groupMoviesByYear();
+		
+		assertThat(grouping.keySet(), is(empty()));
+	}
 }
