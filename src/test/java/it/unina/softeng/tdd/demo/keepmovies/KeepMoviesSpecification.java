@@ -12,8 +12,12 @@ import static org.hamcrest.Matchers.*;
 
 class KeepMoviesSpecification {
 	
-	void someMoviesInCaseYouNeedThem() {
-		Movie joker, jojo, dunkirk, up;
+	KeepMovies k;
+	Movie joker, jojo, dunkirk, up;
+	
+	@BeforeEach
+	void init() {
+		k       = new KeepMovies();
 		joker   = new Movie("Joker",Year.of(2019),"thriller");
 		jojo    = new Movie("Jojo Rabbit", Year.of(2019), "comedy-drama");
 		dunkirk = new Movie("Dunkirk",Year.of(2017),"war");
@@ -22,18 +26,13 @@ class KeepMoviesSpecification {
 	
 	@Test
 	void shouldBeEmptyWhenInstantiated() {
-		KeepMovies k  = new KeepMovies();
 		List<Movie> movies = k.getMovies();
+		
 		assertThat(movies, is(empty()));
 	}
 	
 	@Test
 	void shouldStoreSavedMovies() {
-		KeepMovies k  = new KeepMovies();
-		Movie joker, jojo;
-		joker   = new Movie("Joker",Year.of(2019),"thriller");
-		jojo    = new Movie("Jojo Rabbit", Year.of(2019), "comedy-drama");
-		
 		k.add(joker);
 		k.add(jojo);
 		
@@ -42,11 +41,6 @@ class KeepMoviesSpecification {
 	
 	@Test
 	void shouldNotStoreDuplicateMovies() {
-		KeepMovies k  = new KeepMovies();
-		Movie joker, jojo;
-		joker   = new Movie("Joker",Year.of(2019),"thriller");
-		jojo    = new Movie("Jojo Rabbit", Year.of(2019), "comedy-drama");
-		
 		k.add(joker);
 		k.add(jojo);
 		k.add(joker);
