@@ -106,5 +106,15 @@ class KeepMoviesSpecification {
 			assertThat(sortedList, contains(joker,dunkirk,up));
 		}
 	}
-	
+
+	@Test
+	void shouldRemoveAlreadyWatchedMoviesCorrectly() {
+		k.add(jojo,joker,up,dunkirk);
+		up.markAsWatched();
+		joker.markAsWatched();
+		
+		k.removeWatchedMovies();
+		
+		assertThat(k.getMovies(),containsInAnyOrder(jojo,dunkirk));
+	}
 }
