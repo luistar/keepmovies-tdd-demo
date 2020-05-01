@@ -40,4 +40,18 @@ class KeepMoviesSpecification {
 		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo));
 	}
 	
+	@Test
+	void shouldNotStoreDuplicateMovies() {
+		KeepMovies k  = new KeepMovies();
+		Movie joker, jojo;
+		joker   = new Movie("Joker",Year.of(2019),"thriller");
+		jojo    = new Movie("Jojo Rabbit", Year.of(2019), "comedy-drama");
+		
+		k.add(joker);
+		k.add(jojo);
+		k.add(joker);
+		
+		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo));
+	}
+	
 }
