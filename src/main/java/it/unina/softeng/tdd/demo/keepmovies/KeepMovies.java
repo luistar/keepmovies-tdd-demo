@@ -37,35 +37,11 @@ public class KeepMovies {
 	}
 
 	public Map<Year, List<Movie>> groupMoviesByYear() {
-		Map<Year, List<Movie>> grouping = new HashMap<Year, List<Movie>>();
-		for(Movie m : movies) {
-			Year y = m.getReleaseYear();
-			if( grouping.containsKey(y) ) {
-				grouping.get(y).add(m);
-			}
-			else {
-				List<Movie> list = new ArrayList<Movie>();
-				list.add(m);
-				grouping.put(y, list);
-			}
-		}
-		return grouping;
+		return groupBy((Movie movie) -> movie.getReleaseYear());
 	}
 
 	public Map<String, List<Movie>> groupMoviesByGenre() {
-		Map<String, List<Movie>> grouping = new HashMap<String, List<Movie>>();
-		for(Movie m : movies) {
-			String genre = m.getGenre();
-			if( grouping.containsKey(genre) ) {
-				grouping.get(genre).add(m);
-			}
-			else {
-				List<Movie> list = new ArrayList<Movie>();
-				list.add(m);
-				grouping.put(genre, list);
-			}
-		}
-		return grouping;
+		return groupBy((Movie movie) -> movie.getGenre());
 	}
 
 	public <T> Map<T, List<Movie>> groupBy(Function<Movie, T> function) {
