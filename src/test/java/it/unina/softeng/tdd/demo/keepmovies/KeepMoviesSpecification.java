@@ -117,4 +117,13 @@ class KeepMoviesSpecification {
 		
 		assertThat(k.getMovies(),containsInAnyOrder(jojo,dunkirk));
 	}
+	
+	@Test
+	void removingWatchedMoviesShouldHaveNoEffectIfThereAreNoWatchedMovies() {
+		k.add(jojo,joker,up,dunkirk);
+		
+		k.removeWatchedMovies();
+		
+		assertThat(k.getMovies(),containsInAnyOrder(jojo,dunkirk,up,joker));
+	}
 }
