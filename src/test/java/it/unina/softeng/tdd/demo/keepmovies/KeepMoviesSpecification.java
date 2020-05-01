@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Year;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -125,5 +126,23 @@ class KeepMoviesSpecification {
 		k.removeWatchedMovies();
 		
 		assertThat(k.getMovies(),containsInAnyOrder(jojo,dunkirk,up,joker));
+	}
+	
+	@Test
+	void shouldGroupMoviesByYear() {
+		k.add(joker,jojo,up,dunkirk);
+		
+		Map<Year,List<Movie>> grouping = k.groupMoviesByYear();
+		
+		assertThat(grouping, allOf(
+			hasEntry(is(Year.of(2019)), containsInAnyOrder(joker,jojo)),
+			hasEntry(is(Year.of(2017)), containsInAnyOrder(dunkirk)),
+			hasEntry(is(Year.of(2009)), containsInAnyOrder(up)),
+			not(hasKey(allOf(
+				is(not(Year.of(2019))),
+				is(not(Year.of(2017))),
+				is(not(Year.of(2009)))
+			)))
+		));
 	}
 }
