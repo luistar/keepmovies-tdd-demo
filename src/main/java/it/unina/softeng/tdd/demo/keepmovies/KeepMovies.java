@@ -9,4 +9,8 @@ public class KeepMovies {
 		return new ArrayList<Movie>();
 	}
 
+	public void add(Movie joker) {
+		// TODO Auto-generated method stub
+	}
+
 }
