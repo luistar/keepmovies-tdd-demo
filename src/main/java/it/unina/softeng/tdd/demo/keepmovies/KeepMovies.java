@@ -52,7 +52,19 @@ public class KeepMovies {
 	}
 
 	public Map<String, List<Movie>> groupMoviesByGenre() {
-		return new HashMap<String, List<Movie>>();
+		Map<String, List<Movie>> grouping = new HashMap<String, List<Movie>>();
+		for(Movie m : movies) {
+			String genre = m.getGenre();
+			if( grouping.containsKey(genre) ) {
+				grouping.get(genre).add(m);
+			}
+			else {
+				List<Movie> list = new ArrayList<Movie>();
+				list.add(m);
+				grouping.put(genre, list);
+			}
+		}
+		return grouping;
 	}
 
 }
