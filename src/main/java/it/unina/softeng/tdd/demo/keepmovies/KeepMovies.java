@@ -11,9 +11,13 @@ public class KeepMovies {
 		return movies;
 	}
 
-	public void add(Movie movie) {
-		if( ! movies.contains(movie) && movie != null ) {
-			movies.add(movie);
+	public void add(Movie ... toAdd) {
+		if(toAdd != null) {
+			for(Movie movie: toAdd) {
+				if( movie != null && ! movies.contains(movie) ) {
+					movies.add(movie);
+				}
+			}
 		}
 	}
 
