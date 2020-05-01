@@ -92,4 +92,13 @@ class KeepMoviesSpecification {
 		assertThat(sortedList, anyOf(contains(up,dunkirk,jojo,joker),contains(up,dunkirk,joker,jojo)));
 	}
 	
+	@Test
+	void shouldSortCorrectlyByReleaseYearDesc() {
+		k.add(joker,up,dunkirk);
+		
+		List<Movie> sortedList = k.getMoviesByReleaseYearDesc();
+		
+		assertThat(sortedList, contains(jojo,dunkirk,up));
+	}
+	
 }
