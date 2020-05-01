@@ -1,8 +1,10 @@
 package it.unina.softeng.tdd.demo.keepmovies;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public class KeepMovies {
 
@@ -30,6 +32,11 @@ public class KeepMovies {
 
 	public void removeWatchedMovies() {
 		movies.removeIf( (Movie m) -> m.isAlreadyWatched());
+	}
+
+	public Map<Year, List<Movie>> groupMoviesByYear() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
