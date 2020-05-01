@@ -98,7 +98,7 @@ class KeepMoviesSpecification {
 		
 		List<Movie> sortedList = k.getMoviesByReleaseYearDesc();
 		
-		assertThat(sortedList, contains(jojo,dunkirk,up));
+		assertThat(sortedList, contains(joker,dunkirk,up));
 	}
 	
 }
