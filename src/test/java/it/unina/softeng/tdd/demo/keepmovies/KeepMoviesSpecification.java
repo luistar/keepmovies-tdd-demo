@@ -162,4 +162,22 @@ class KeepMoviesSpecification {
 		
 		assertThat(grouping.keySet(), is(empty()));
 	}
+	
+	@Test
+	void shouldGroupMoviesByGenre() {
+		k.add(joker,jojo,up,dunkirk);
+		
+		Map<String,List<Movie>> grouping = k.groupMoviesByGenre();
+		
+		assertThat(grouping, allOf(
+			hasEntry(is("war"), containsInAnyOrder(dunkirk)),
+			hasEntry(is("thiller"), containsInAnyOrder(joker)),
+			hasEntry(is("comedy-drama"), containsInAnyOrder(up,jojo)),
+			not(hasKey(allOf(
+				is(not(equalTo("war"))),
+				is(not(equalTo("thriller"))),
+				is(not(equalTo("comedy-drama")))
+			)))
+		));
+	}
 }
