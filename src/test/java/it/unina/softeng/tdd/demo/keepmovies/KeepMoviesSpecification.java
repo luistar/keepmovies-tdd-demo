@@ -171,7 +171,7 @@ class KeepMoviesSpecification {
 		
 		assertThat(grouping, allOf(
 			hasEntry(is("war"), containsInAnyOrder(dunkirk)),
-			hasEntry(is("thiller"), containsInAnyOrder(joker)),
+			hasEntry(is("thriller"), containsInAnyOrder(joker)),
 			hasEntry(is("comedy-drama"), containsInAnyOrder(up,jojo)),
 			not(hasKey(allOf(
 				is(not(equalTo("war"))),
