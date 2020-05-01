@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class KeepMovies {
 
@@ -67,9 +68,20 @@ public class KeepMovies {
 		return grouping;
 	}
 
-	public Map<Integer, List<Movie>> groupBy(Object object) {
-		// TODO Auto-generated method stub
-		return null;
+	public <T> Map<T, List<Movie>> groupBy(Function<Movie, T> function) {
+		Map<T, List<Movie>> grouping = new HashMap<T, List<Movie>>();
+		for(Movie m : movies) {
+			T key = function.apply(m);
+			if( grouping.containsKey(key) ) {
+				grouping.get(key).add(m);
+			}
+			else {
+				List<Movie> list = new ArrayList<Movie>();
+				list.add(m);
+				grouping.put(key, list);
+			}
+		}
+		return grouping;
 	}
 
 }
