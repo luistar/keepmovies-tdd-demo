@@ -15,4 +15,11 @@ class MovieSpecification {
 		Movie m = new Movie("1917",Year.of(2019),"war");
 		assertThat(m.isAlreadyWatched(), is(false));
 	}
+	
+	@Test
+	void shouldBeMarkableAsWatched() {
+		Movie m = new Movie("1917",Year.of(2019),"war");
+		m.markAsWatched();
+		assertThat(m.isAlreadyWatched(), is(true));
+	}
 }
