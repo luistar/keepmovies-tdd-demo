@@ -153,4 +153,13 @@ class KeepMoviesSpecification {
 		
 		assertThat(grouping.keySet(), is(empty()));
 	}
+	
+	
+	@Test
+	void shouldReturnEmptyGroupingWhenGroupMoviesByGenreIsCalledOnEmptyKeepMovies() {
+		
+		Map<String,List<Movie>> grouping = k.groupMoviesByGenre();
+		
+		assertThat(grouping.keySet(), is(empty()));
+	}
 }
