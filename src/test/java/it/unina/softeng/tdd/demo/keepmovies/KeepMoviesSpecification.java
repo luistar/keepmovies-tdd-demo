@@ -48,4 +48,13 @@ class KeepMoviesSpecification {
 		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo));
 	}
 	
+	@Test
+	void shouldNotStoreNullMovies() {
+		k.add(joker);
+		k.add(jojo);
+		k.add(null);
+		
+		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo));
+	}
+	
 }
