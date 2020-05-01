@@ -52,8 +52,7 @@ public class KeepMovies {
 	}
 
 	public Map<String, List<Movie>> groupMoviesByGenre() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HashMap<String, List<Movie>>();
 	}
 
 }
