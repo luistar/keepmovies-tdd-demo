@@ -28,4 +28,9 @@ public class KeepMovies {
 		return sortedList;
 	}
 
+	public void removeWatchedMovies() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
