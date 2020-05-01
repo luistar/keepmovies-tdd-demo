@@ -180,4 +180,17 @@ class KeepMoviesSpecification {
 			)))
 		));
 	}
+	
+	@Test
+	void shouldGroupMoviesByCustomCriteria() {
+		k.add(joker,jojo,up,dunkirk);
+		Map<Integer,List<Movie>> grouping = k.groupBy( (Movie movie) -> {
+			return movie.getReleaseYear().getValue()%10;
+		});
+		assertThat(grouping, allOf(
+			hasEntry(is(9), containsInAnyOrder(joker,jojo,up)),
+			hasEntry(is(7), containsInAnyOrder(dunkirk))
+		));
+	}
+
 }
