@@ -65,4 +65,13 @@ class KeepMoviesSpecification {
 		assertThat(k.getMovies(),containsInAnyOrder(joker,jojo,dunkirk,up));
 	}
 	
+	@Test
+	void shouldSortCorrectlyByTitleAsc() {
+		k.add(joker,jojo,up,dunkirk);
+		
+		List<Movie> sortedList = k.getMoviesByTitleAsc();
+		
+		assertThat(sortedList, contains(dunkirk,jojo,joker,up));
+	}
+	
 }
