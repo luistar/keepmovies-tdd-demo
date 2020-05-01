@@ -9,6 +9,7 @@ public class Movie {
 	private String title;
 	private Year releaseYear;
 	private String genre;
+	private boolean isAlreadyWatched;
 	
 	public Movie(String title, Year releaseYear, String genre) {
 		this.title = title;
@@ -44,11 +45,11 @@ public class Movie {
 
 
 	public boolean isAlreadyWatched() {
-		return false;
+		return this.isAlreadyWatched;
 	}
 
 
 	public void markAsWatched() {
-		// TODO Auto-generated method stub
+		this.isAlreadyWatched = true;
 	}
 }
