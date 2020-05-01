@@ -29,8 +29,7 @@ public class KeepMovies {
 	}
 
 	public void removeWatchedMovies() {
-		// TODO Auto-generated method stub
-		
+		movies.removeIf( (Movie m) -> m.isAlreadyWatched());
 	}
 
 }
