@@ -7,4 +7,4 @@ Starter repository for the KeepMovies TDD exercise
 - [x] As a user, I want to sort the movies I saved lexicographically or by release date.
 - [x] As a user, I want to be able to remove movies I marked as "already watched" from my KeepMovies. 
 - [x] As a user, I want to group my movies by genre and year.
-- [ ] As a user, I want to group my movies by custom criteria.
+- [X] As a user, I want to group my movies by custom criteria.
