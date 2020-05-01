@@ -74,4 +74,13 @@ class KeepMoviesSpecification {
 		assertThat(sortedList, contains(dunkirk,jojo,joker,up));
 	}
 	
+	@Test
+	void shouldSortCorrectlyByTitleDesc() {
+		k.add(joker,jojo,up,dunkirk);
+		
+		List<Movie> sortedList = k.getMoviesByTitleDesc();
+		
+		assertThat(sortedList, contains(up,joker,jojo,dunkirk));
+	}
+	
 }
