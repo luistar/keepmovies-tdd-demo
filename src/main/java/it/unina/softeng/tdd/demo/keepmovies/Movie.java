@@ -41,4 +41,10 @@ public class Movie {
 	public String toString() {
 		return "Movie [title=" + title + ", releaseYear=" + releaseYear + ", genre=" + genre + "]";
 	}
+
+
+	public boolean isAlreadyWatched() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
