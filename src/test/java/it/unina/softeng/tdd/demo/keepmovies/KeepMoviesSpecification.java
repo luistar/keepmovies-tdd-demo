@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.*;
 
+import static it.unina.softeng.tdd.demo.keepmovies.MovieComparators.*;
+
 class KeepMoviesSpecification {
 	
 	KeepMovies k;
@@ -72,7 +74,7 @@ class KeepMoviesSpecification {
 		void shouldSortCorrectlyByTitleAsc() {
 			k.add(joker,jojo,up,dunkirk);
 			
-			List<Movie> sortedList = k.getMoviesByTitleAsc();
+			List<Movie> sortedList = k.getMoviesOrdered(BY_TITLE_ASC);
 			
 			assertThat(sortedList, contains(dunkirk,jojo,joker,up));
 		}
@@ -81,7 +83,7 @@ class KeepMoviesSpecification {
 		void shouldSortCorrectlyByTitleDesc() {
 			k.add(joker,jojo,up,dunkirk);
 			
-			List<Movie> sortedList = k.getMoviesByTitleDesc();
+			List<Movie> sortedList = k.getMoviesOrdered(BY_TITLE_DESC);
 			
 			assertThat(sortedList, contains(up,joker,jojo,dunkirk));
 		}
@@ -90,7 +92,7 @@ class KeepMoviesSpecification {
 		void shouldSortCorrectlyByReleaseYearAsc() {
 			k.add(joker,jojo,up,dunkirk);
 			
-			List<Movie> sortedList = k.getMoviesByReleaseYearAsc();
+			List<Movie> sortedList = k.getMoviesOrdered(BY_RELEASE_DATE_ASC);
 			
 			assertThat(sortedList, anyOf(contains(up,dunkirk,jojo,joker),contains(up,dunkirk,joker,jojo)));
 		}
@@ -99,7 +101,7 @@ class KeepMoviesSpecification {
 		void shouldSortCorrectlyByReleaseYearDesc() {
 			k.add(joker,up,dunkirk);
 			
-			List<Movie> sortedList = k.getMoviesByReleaseYearDesc();
+			List<Movie> sortedList = k.getMoviesOrdered(BY_RELEASE_DATE_DESC);
 			
 			assertThat(sortedList, contains(joker,dunkirk,up));
 		}
